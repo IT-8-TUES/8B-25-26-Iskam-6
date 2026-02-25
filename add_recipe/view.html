@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>add recipe</title>
+    </head>
+    <body>
+        <h1>Add recipe</h1>
+        <form method = "post">
+            <label>title:</label><br>
+            <input type = "text" name = "title" oninput="this.size = this.value.length"><br><br>
+            <div id = "ingredient">
+                <label>ingredients:</label><br>
+                <input type = "text" name = "ingredient_0" oninput="this.size = this.value.length"><br><br>
+            </div>
+            <button type="button" onclick = add_ingredient()>add ingredient</button><br><br>
+            <div id = "preperation">
+                <label>preperation:</label><br>
+                <input type = "text" name = "step_0" oninput="this.size = this.value.length"><br><br>
+            </div>
+            <button type="button" onclick = add_prep_step()>add preparation step</button><br><br>
+            <input type = "submit" value = "submit">
+        </form>
+        <a href = "/recipes/">recipes</a>
+        <script src = '../sources/recipe.js'></script>
+    </body>
+</html>
