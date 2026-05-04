@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Header Styles */
+#header {
+    background-color: #232f3e;
+    color: white;
+    margin: 0px;
+    padding: 0;
+}
+
+#top-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 20px;
+    background-color: #232f3e;
+    border-bottom: 1px solid #131a22;
+}
+
+.delivery-info {
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 120px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.delivery-info:hover {
+    background-color: #364652;
+}
+
+.search-bar {
+    display: flex;
+    flex: 1;
+    gap: 0px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+    transition: background-color 0.2s;
+}
+
+.search-bar button:hover {
+    background-color: #ff8800;
+}
+
+.right-section {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.account {
+    font-size: 13px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.account:hover {
+    background-color: #364652;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.cart:hover {
+    background-color: #364652;
+}
+
+.cart-count {
+    background-color: #ff9900;
+    color: black;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#bottom-row {
+    background-color: #131a22;
+    padding: 10px 20px;
+}
+
+.navbar {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 0;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.2s;
+    cursor: pointer;
+}
+
+.navbar a:hover {
+    border-bottom-color: #ff9900;
+}
