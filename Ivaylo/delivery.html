@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deliver To - Bamazone</title>
+    <link rel="stylesheet" href="../shared/shared-styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="header"></header>
+
+    <div class="delivery-container">
+        <div class="delivery-form">
+            <h1>Choose Delivery Location</h1>
+            <p>Select where you want your orders delivered:</p>
+
+            <div class="delivery-options">
+                <div class="delivery-option">
+                    <img src="images/bg.png" alt="Bulgaria Flag" class="location-flag">
+                    <span class="location-name">Bulgaria</span>
+                </div>
+
+                <div class="delivery-option">
+                    <img src="images/us.png" alt="United States Flag" class="location-flag">
+                    <span class="location-name">United States</span>
+                </div>
+
+                <div class="delivery-option">
+                    <img src="images/de.png" alt="Germany Flag" class="location-flag">
+                    <span class="location-name">Germany</span>
+                </div>
+
+                <div class="delivery-option">
+                    <img src="images/north-pole.png" alt="North Pole" class="location-flag"
+                        style="width: 40px; height: 40px;">
+                    <span class="location-name">North Pole</span>
+                </div>
+
+                <div class="delivery-option">
+                    <img src="images/moon.png" alt="The Moon" class="location-flag" style="width: 40px; height: 40px;">
+                    <span class="location-name">The Moon</span>
+                </div>
+            </div>
+
+            <button id="confirm" class="btn-confirm-delivery">Confirm Selection</button>
+        </div>
+    </div>
+
+    <script src="../shared/loader.js"></script>
+
+    <script>
+
+        const currentLocation = localStorage.getItem('delivery-place');
+        const deliveryOptions = document.getElementsByClassName('delivery-option');
+        let selectedLocation = currentLocation;
+
+        let currentOption;
+
+        for (let loc of document.getElementsByClassName('location-name')) {
+            if (loc.innerHTML === currentLocation) {
+                currentOption = loc.parentElement;
+                break;
+            }
+        }
+
+        if (currentOption) {
+            currentOption.classList.add('selected');
+        }
+
+        for (let option of deliveryOptions) {
+            option.addEventListener('click', function () {
+                for (let opt of deliveryOptions) {
+                    opt.classList.remove('selected');
+                }
+
+                this.classList.add('selected');
+                selectedLocation = this.children[1].innerHTML;
+            });
+        }
+
+        const confirmButton = document.getElementById('confirm');
+        if (confirmButton) {
+            confirmButton.addEventListener('click', function () {
+                if (selectedLocation) {
+                    localStorage.setItem('delivery-place', selectedLocation);
+                    //todo - да го сменя да ходи в home или да показва само че е запаметено и да си остава в delivery 
+                    window.location.href = 'product.html';
+                } else {
+                    //todo - смени на текстов елемент в самата страница
+                    alert('Please select a delivery location first.');
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
