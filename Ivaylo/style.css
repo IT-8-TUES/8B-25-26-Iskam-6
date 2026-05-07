@@ -230,7 +230,7 @@
     font-size: 28px;
 }
 
-.delivery-form > p {
+.delivery-form>p {
     text-align: center;
     margin-bottom: 30px;
     color: #666;
@@ -294,4 +294,141 @@
 
 .btn-confirm-delivery:hover {
     background-color: #ff8800;
+}
+
+/* Sign In Page Styles */
+.signin-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signin-form h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ff9900;
+    box-shadow: 0 0 5px rgba(255, 153, 0, 0.3);
+}
+
+.btn-signin {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-signin:hover {
+    background-color: #ff8800;
+}
+
+.signin-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signin-links a {
+    display: block;
+    margin: 10px 0;
+    color: #0066c0;
+    text-decoration: none;
+}
+
+.signin-links a:hover {
+    text-decoration: underline;
+}
+
+/* Already Logged In Message */
+.already-logged-in {
+    text-align: center;
+}
+
+.already-logged-in h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 28px;
+}
+
+.already-logged-in p {
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 16px;
+}
+
+.already-logged-in strong {
+    color: #ff9900;
+    font-weight: bold;
+}
+
+.btn-logout {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 10px;
+    padding: 12px 24px;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-logout:hover {
+    background-color: #ff8800;
+}
+
+.back-to-home {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 12px 24px;
+    background-color: #232f3e;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.back-to-home:hover {
+    background-color: #131a22;
 }

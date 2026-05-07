@@ -18,4 +18,14 @@ load("header", "../shared/header.html").then(() => {
     }
     document.getElementById('delivery-info').innerHTML = `Deliver to <b>${deliveryLocation}</b>`;
 
+    // sign-in
+    document.getElementById('account').addEventListener('click', function () {
+        window.location.href = '../Ivaylo/signin.html';
+    });
+    let loggedInUser = localStorage.getItem('loggedin-user');
+    if (loggedInUser) {
+        document.getElementById('account').innerHTML = `Hello <b>${loggedInUser}</b>`;
+    } else {
+        document.getElementById('account').innerHTML = `<b>Sign In ...</b>`;
+    }
 });

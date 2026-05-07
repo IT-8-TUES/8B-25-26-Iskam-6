@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Bamazone</title>
+    <link rel="stylesheet" href="../shared/shared-styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="header"></header>
+
+    <div class="signin-container">
+        <div class="signin-form" id="signin-form">
+            <h1>Sign In</h1>
+            <form id="signInForm" action="#" method="post">
+                <div class="form-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="btn-signin">Sign In</button>
+            </form>
+        </div>
+
+        <div class="already-logged-in" id="already-logged-in" style="display: none;">
+            <h1>Already Logged In</h1>
+            <p>Welcome back, <strong id="logged-username"></strong>!</p>
+            <p>You are already logged in to your account.</p>
+            <button id="btn-logout" class="btn-logout">Log Out</button>
+            <!--todo - да го направя да сочи към home page-->
+            <a href="product.html" class="back-to-home">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="../shared/loader.js"></script>
+
+    <script>
+        const loggedInUser = localStorage.getItem('loggedin-user');
+        const signinForm = document.getElementById('signin-form');
+        const alreadyLoggedIn = document.getElementById('already-logged-in');
+
+        if (loggedInUser) {
+            //show form
+            signinForm.style.display = 'none';
+            alreadyLoggedIn.style.display = 'block';
+            document.getElementById('logged-username').textContent = loggedInUser;
+        } else {
+            //hide form
+            signinForm.style.display = 'block';
+            alreadyLoggedIn.style.display = 'none';
+        }
+
+        document.getElementById('signInForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            //нямаме сървър за това не валидираме нищо
+
+            localStorage.setItem('loggedin-user', username);
+
+            //todo - да го направя да сочи към home page
+            window.location.href = 'product.html';
+        });
+
+        document.getElementById('btn-logout').addEventListener('click', function () {
+            localStorage.removeItem('loggedin-user');
+            // show form
+            signinForm.style.display = 'block';
+            alreadyLoggedIn.style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            window.location.reload(true);
+        });
+    </script>
+</body>
+
+</html>
