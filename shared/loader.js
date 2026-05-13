@@ -36,9 +36,9 @@ load("header", "../shared/header.html").then(() => {
         const searchQuery = searchInput.value.trim();
 
         if (searchQuery) {
-            window.location.href = `../Ivaylo/index.html?q=${encodeURIComponent(searchQuery)}`;
+            window.location.href = `../Ivaylo/product.html?q=${encodeURIComponent(searchQuery)}`;
         } else {
-            window.location.href = '../Ivaylo/index.html';
+            window.location.href = '../Ivaylo/product.html';
         }
     });
     const urlParams = new URLSearchParams(window.location.search);
