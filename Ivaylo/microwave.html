@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bamazone</title>
+    <link rel="stylesheet" href="../shared/shared-styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header"></header>
+    <div class="container">
+        <section class="product-image">
+            <div class="image-gallery">
+                <div class="main-image-container">
+                    <img src="images/products/none.jpg" alt="Panasonic NN-SN966S Microwave Oven - Main View"
+                        id="main-image" class="main-image">
+                </div>
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail active">
+                        <img src="images/products/none.jpg" alt="Main View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/products/none.jpg" alt="Side View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/products/none.jpg" alt="Interior View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/products/none.jpg" alt="Control Panel">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/products/none.jpg" alt="Dimensions">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-details">
+            <h1 class="product-title">Panasonic NN-SN966S Countertop Microwave Oven with Inverter Technology</h1>
+
+            <div class="product-rating">
+                <span class="rating-stars">★★★★☆</span>
+                <span class="rating-count">(4.5 out of 5 stars from 1,234 reviews)</span>
+            </div>
+
+            <div class="product-price">
+                <p class="price-label">Price:</p>
+                <p class="price-value">$149.99</p>
+            </div>
+
+            <div class="product-status">
+                <p class="status-message">In Stock - Ships within 2 business days</p>
+            </div>
+
+            <div class="product-info">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="info-label">Brand</td>
+                            <td class="info-value">Panasonic</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Manufacturer</td>
+                            <td class="info-value">Panasonic</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Model</td>
+                            <td class="info-value">NN-SN966S</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Capacity</td>
+                            <td class="info-value">2.2 Cubic Feet</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Power</td>
+                            <td class="info-value">1250 Watts</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Color</td>
+                            <td class="info-value">Stainless Steel</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="product-description">
+                <h2>About this item</h2>
+                <ul>
+                    <li>Inverter Technology for Even Cooking and Reheating</li>
+                    <li>2.2 Cubic Foot Capacity - Perfect for family meals</li>
+                    <li>1250 Watts of Cooking Power</li>
+                    <li>One-Touch Sensor Cooking and Reheating</li>
+                    <li>10 Power Levels for Precise Cooking Control</li>
+                    <li>Stainless Steel Interior for Easy Cleaning</li>
+                    <li>Child Safety Lock Feature</li>
+                    <li>Quick 30-Second Cooking Option</li>
+                    <li>Timer Function up to 99 minutes and 99 seconds</li>
+                    <li>Turntable for Even Cooking Results</li>
+                </ul>
+                <p>This Panasonic countertop microwave oven features advanced Inverter Technology that delivers
+                    consistent power throughout the cooking cycle for even cooking and reheating results. The spacious
+                    2.2 cubic foot interior accommodates large dishes, while the 1250-watt output ensures fast cooking
+                    times. Sensor cooking automatically adjusts power and time based on food moisture levels for perfect
+                    results every time.</p>
+            </div>
+
+            <section class="product-actions">
+                <div class="quantity-selector">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1" min="1" max="10">
+                </div>
+
+                <button class="btn btn-add-cart">Add to cart</button>
+                <button class="btn btn-buy-now">Buy Now</button>
+
+                <button class="btn btn-add-list">Add to List</button>
+            </section>
+
+            <div class="seller-info">
+                <p>Shipper / Seller: <strong>Bamazone</strong></p>
+            </div>
+        </section>
+    </div>
+
+    <script src="../shared/loader.js"></script>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('q');
+
+        if (searchQuery) {
+            //търси продукта
+        }
+
+        // Image gallery functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const thumbnails = document.getElementsByClassName('thumbnail');
+            const mainImage = document.getElementById('main-image');
+            const imagePlaceholder = document.getElementById('image-placeholder');
+
+            for (let thumbnail of thumbnails) {
+                thumbnail.addEventListener('click', function () {
+                    // Remove active class from all thumbnails
+                    for (let t of thumbnails) {
+                        t.classList.remove('active');
+                    }
+
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+
+                    // Change main image
+                    const imageSrc = this.children[0].src;
+                    if (mainImage) {
+                        mainImage.src = imageSrc;
+                        mainImage.style.display = 'block';
+                        if (imagePlaceholder) {
+                            imagePlaceholder.style.display = 'none';
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
