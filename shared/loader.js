@@ -1,55 +1,70 @@
-async function load(id, url) {
-    const res = await fetch(url);
-    const html = await res.text();
-
-    document.getElementById(id).innerHTML = html;
+async function loadHeader(id, url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
+        const html = await response.text();
+        const container = document.getElementById(id);
+        if (!container) throw new Error(`Target element #${id} not found.`);
+        container.innerHTML = html;
+        initializeHeader();
+    } catch (error) {
+        console.error('Header Load Error:', error);
+    }
 }
 
-// Load header
-load("header", "../shared/header.html").then(() => {
+function handleThemeChange(theme) {
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    // Dispatch custom event for other scripts to listen to
+    window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme } }));
+    console.log(`Theme changed to: ${theme}`);
+}
 
-    // delivery
-    document.getElementById('delivery-info').addEventListener('click', function () {
-        window.location.href = '../Ivaylo/delivery.html';
-    });
-    let deliveryLocation = localStorage.getItem('delivery-place');
-    if (!deliveryLocation) {
-        deliveryLocation = "...";
+function initializeHeader() {
+    // Theme Switcher
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    // Apply initial theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    handleThemeChange(savedTheme);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            handleThemeChange(newTheme);
+        });
     }
-    document.getElementById('delivery-info').innerHTML = `Deliver to <b>${deliveryLocation}</b>`;
 
-    // sign-in
-    document.getElementById('account').addEventListener('click', function () {
-        window.location.href = '../Ivaylo/signin.html';
-    });
-    let loggedInUser = localStorage.getItem('loggedin-user');
-    if (loggedInUser) {
-        document.getElementById('account').innerHTML = `Hello <b>${loggedInUser}</b>`;
-    } else {
-        document.getElementById('account').innerHTML = `<b>Sign In ...</b>`;
+    const deliveryInfo = document.getElementById('delivery-info');
+    if (deliveryInfo) {
+        deliveryInfo.addEventListener('click', () => window.location.href = '../Ivaylo/delivery.html');
+        const loc = localStorage.getItem('delivery-place') || "...";
+        deliveryInfo.innerHTML = `Deliver to <b>${loc}</b>`;
     }
 
-    //search
-    document.getElementById('search').addEventListener('click', function () {
-        // Get the search input value
-        const searchInput = document.getElementById('search-input');
-        const searchQuery = searchInput.value.trim();
-
-        if (searchQuery) {
-            window.location.href = `../Ivaylo/product.html?q=${encodeURIComponent(searchQuery)}`;
-        } else {
-            window.location.href = '../Ivaylo/product.html';
-        }
-    });
-    const urlParams = new URLSearchParams(window.location.search);
-    const searchQuery = urlParams.get('q');
-
-    if (searchQuery) {
-        const searchInput = document.getElementById('search-input');
-        if (searchInput) {
-            searchInput.value = searchQuery;
-        }
-
-        document.title = `Search: ${searchQuery} - Bamazone`;
+    const account = document.getElementById('account');
+    if (account) {
+        account.addEventListener('click', () => window.location.href = '../Ivaylo/signin.html');
+        const user = localStorage.getItem('loggedin-user');
+        account.innerHTML = user ? `Hello <b>${user}</b>` : `<b>Sign In ...</b>`;
     }
-});
+
+    const searchBtn = document.getElementById('search');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+            const query = document.getElementById('search-input')?.value.trim();
+            window.location.href = query ? `../Ivaylo/product.html?q=${encodeURIComponent(query)}` : '../Ivaylo/product.html';
+        });
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
+    if (q) {
+        const input = document.getElementById('search-input');
+        if (input) input.value = q;
+        document.title = `Search: ${q} - Bamazone`;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => loadHeader("header", "../shared/header.html"));
