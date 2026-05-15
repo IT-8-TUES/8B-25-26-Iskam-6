@@ -54,7 +54,7 @@ function initializeHeader() {
     if (searchBtn) {
         searchBtn.addEventListener('click', () => {
             const query = document.getElementById('search-input')?.value.trim();
-            window.location.href = query ? `../Ivaylo/product.html?q=${encodeURIComponent(query)}` : '../Ivaylo/product.html';
+            window.location.href = query ? `../Daniel/index.html?q=${encodeURIComponent(query)}` : '../Daniel/index.html';
         });
     }
 

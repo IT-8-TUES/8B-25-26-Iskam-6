@@ -37,7 +37,7 @@
             <p>You are already logged in to your account.</p>
             <button id="btn-logout" class="btn-logout">Log Out</button>
             <!--todo - да го направя да сочи към home page-->
-            <a href="product.html" class="back-to-home">Back to Home</a>
+            <a href="../Daniel/index.html" class="back-to-home">Back to Home</a>
         </div>
     </div>
 
@@ -68,9 +68,7 @@
             //нямаме сървър за това не валидираме нищо
 
             localStorage.setItem('loggedin-user', username);
-
-            //todo - да го направя да сочи към home page
-            window.location.href = 'product.html';
+            window.location.href = document.referrer;
         });
 
         document.getElementById('btn-logout').addEventListener('click', function () {

@@ -16,21 +16,24 @@
         <section class="product-image">
             <div class="image-gallery">
                 <div class="main-image-container">
-                    <img src="images/products/microwave/microwave_main_view.jpg" alt="Panasonic NN-SN966S Microwave Oven - Main View"
-                        id="main-image" class="main-image">
+                    <img src="images/products/microwave/microwave_main_view.jpg"
+                        alt="Panasonic NN-SN966S Microwave Oven - Main View" id="main-image" class="main-image">
                 </div>
                 <div class="thumbnail-gallery">
                     <div class="thumbnail active">
                         <img src="images/products//microwave/microwave_main_view.jpg" alt="Main View">
                     </div>
                     <div class="thumbnail">
-                        <img src="images/products/microwave/Gemini_Generated_Image_f4oo74f4oo74f4oo.png" alt="Side View">
+                        <img src="images/products/microwave/Gemini_Generated_Image_f4oo74f4oo74f4oo.png"
+                            alt="Side View">
                     </div>
                     <div class="thumbnail">
-                        <img src="images/products/microwave/Gemini_Generated_Image_7w1k3g7w1k3g7w1k.png" alt="Interior View">
+                        <img src="images/products/microwave/Gemini_Generated_Image_7w1k3g7w1k3g7w1k.png"
+                            alt="Interior View">
                     </div>
                     <div class="thumbnail">
-                        <img src="images/products/microwave/Gemini_Generated_Image_9lkum19lkum19lku.png" alt="Control Panel">
+                        <img src="images/products/microwave/Gemini_Generated_Image_9lkum19lkum19lku.png"
+                            alt="Control Panel">
                     </div>
                     <div class="thumbnail">
                         <img src="images/products/microwave/microwave_specks.jpg" alt="Dimensions">
@@ -126,43 +129,7 @@
 
     <script src="../shared/loader.js"></script>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const searchQuery = urlParams.get('q');
-
-        if (searchQuery) {
-            //търси продукта
-        }
-
-        // Image gallery functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const thumbnails = document.getElementsByClassName('thumbnail');
-            const mainImage = document.getElementById('main-image');
-            const imagePlaceholder = document.getElementById('image-placeholder');
-
-            for (let thumbnail of thumbnails) {
-                thumbnail.addEventListener('click', function () {
-                    // Remove active class from all thumbnails
-                    for (let t of thumbnails) {
-                        t.classList.remove('active');
-                    }
-
-                    // Add active class to clicked thumbnail
-                    this.classList.add('active');
-
-                    // Change main image
-                    const imageSrc = this.children[0].src;
-                    if (mainImage) {
-                        mainImage.src = imageSrc;
-                        mainImage.style.display = 'block';
-                        if (imagePlaceholder) {
-                            imagePlaceholder.style.display = 'none';
-                        }
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="gallery_change.js"></script>
 
 </body>
 

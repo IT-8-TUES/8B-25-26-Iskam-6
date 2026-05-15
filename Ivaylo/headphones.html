@@ -66,13 +66,19 @@
         <section class="product-image">
             <div class="image-gallery">
                 <div class="main-image-container">
-                    <!-- Image Placeholder for your script -->
-                    <div id="image-placeholder" style="display:none;">Loading...</div>
                     <img src="images/products/headphones/Gemini_Generated_Image_11dvve11dvve11dv.png"
                         alt="SonicBlast VK-1153" id="main-image" class="main-image">
                 </div>
-                <div class="thumbnail-gallery" id="thumb-container">
-                    <!-- Thumbnails injected by Script 2 -->
+                <div id="thumbnail-gallery" class="thumbnail-gallery">
+                    <div class="thumbnail active">
+                        <img src="" alt="Main View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="" alt="Axe without the cover">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="" alt="Axe with the cover on">
+                    </div>
                 </div>
             </div>
         </section>
@@ -155,47 +161,8 @@
 
     <script src="../shared/loader.js"></script>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const searchQuery = urlParams.get('q');
+    <script src="gallery_change.js"></script>
 
-        if (searchQuery) {
-            //търси продукта
-        }
-
-        // Image gallery functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const thumbnails = document.getElementsByClassName('thumbnail');
-            const mainImage = document.getElementById('main-image');
-            const imagePlaceholder = document.getElementById('image-placeholder');
-
-            // Using event delegation so it works when thumbnails are swapped by Script 2
-            document.body.addEventListener('click', function (e) {
-                const thumbnail = e.target.closest('.thumbnail');
-                if (!thumbnail) return;
-
-                // Remove active class from all thumbnails
-                for (let t of thumbnails) {
-                    t.classList.remove('active');
-                }
-
-                // Add active class to clicked thumbnail
-                thumbnail.classList.add('active');
-
-                // Change main image
-                const imageSrc = thumbnail.children[0].src;
-                if (mainImage) {
-                    mainImage.src = imageSrc;
-                    mainImage.style.display = 'block';
-                    if (imagePlaceholder) {
-                        imagePlaceholder.style.display = 'none';
-                    }
-                }
-            });
-        });
-    </script>
-
-    <!-- SCRIPT : COLOR SELECTION & GALLERY INJECTION -->
     <script>
         const colorData = {
             black: {
@@ -217,23 +184,25 @@
             }
         };
 
+
         function updateColorGallery(color) {
             const data = colorData[color];
-            const thumbContainer = document.getElementById('thumb-container');
+            const thumbnailGallery = document.getElementById("thumbnail-gallery");
+
+            let activeIndex = 0;
+            for (let i = 0; i < thumbnailGallery.children.length; i++) {
+                let img = thumbnailGallery.children[i].children[0];
+                img.src = data.images[i];
+                if(img.parentElement.classList.contains("active")){
+                    activeIndex = i;
+                }
+            }
+
             const mainImg = document.getElementById('main-image');
             const colorNameText = document.getElementById('color-name');
 
             colorNameText.innerText = data.name;
-            mainImg.src = data.images[0];
-
-            // Re-build the thumbnails for Script 1 to interact with
-            thumbContainer.innerHTML = '';
-            data.images.forEach((src, index) => {
-                const div = document.createElement('div');
-                div.className = `thumbnail ${index === 0 ? 'active' : ''}`;
-                div.innerHTML = `<img src="${src}" alt="${color} view">`;
-                thumbContainer.appendChild(div);
-            });
+            mainImg.src = data.images[activeIndex];
         }
 
         document.querySelectorAll('.swatch').forEach(swatch => {

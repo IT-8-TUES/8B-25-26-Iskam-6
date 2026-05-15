@@ -129,42 +129,6 @@
 
     <script src="../shared/loader.js"></script>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const searchQuery = urlParams.get('q');
-
-        if (searchQuery) {
-            //търси продукта
-        }
-
-        // Image gallery functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const thumbnails = document.getElementsByClassName('thumbnail');
-            const mainImage = document.getElementById('main-image');
-            const imagePlaceholder = document.getElementById('image-placeholder');
-
-            for (let thumbnail of thumbnails) {
-                thumbnail.addEventListener('click', function () {
-                    // Remove active class from all thumbnails
-                    for (let t of thumbnails) {
-                        t.classList.remove('active');
-                    }
-
-                    // Add active class to clicked thumbnail
-                    this.classList.add('active');
-
-                    // Change main image
-                    const imageSrc = this.children[0].src;
-                    if (mainImage) {
-                        mainImage.src = imageSrc;
-                        mainImage.style.display = 'block';
-                        if (imagePlaceholder) {
-                            imagePlaceholder.style.display = 'none';
-                        }
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="gallery_change.js"></script>
 
 </body>
