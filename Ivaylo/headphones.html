@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bamazone - SonicBlast VK-1153</title>
+    <link rel="stylesheet" href="../shared/shared-styles.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles for Out of Stock state */
+        .status-message.out-of-stock {
+            color: #d9534f;
+            font-weight: bold;
+            padding: 10px;
+            border: 1px solid #d9534f;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            border-color: #bbbbbb;
+        }
+
+        /* Color Selection Styles */
+        .color-selection {
+            margin: 20px 0;
+        }
+
+        .swatch-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .swatch.active {
+            border-color: #007185;
+            outline: 2px solid #007185;
+        }
+
+        .swatch.black {
+            background-color: #1a1a1a;
+        }
+
+        .swatch.white {
+            background-color: #ffffff;
+            border: 2px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header"></header>
+    <div class="container">
+        <section class="product-image">
+            <div class="image-gallery">
+                <div class="main-image-container">
+                    <!-- Image Placeholder for your script -->
+                    <div id="image-placeholder" style="display:none;">Loading...</div>
+                    <img src="images/products/headphones/Gemini_Generated_Image_11dvve11dvve11dv.png"
+                        alt="SonicBlast VK-1153" id="main-image" class="main-image">
+                </div>
+                <div class="thumbnail-gallery" id="thumb-container">
+                    <!-- Thumbnails injected by Script 2 -->
+                </div>
+            </div>
+        </section>
+
+        <section class="product-details">
+            <h1 class="product-title">SonicBlast Premium Wireless Earphones (Model VK-1153)</h1>
+
+            <div class="product-rating">
+                <span class="rating-stars">★★★★★</span>
+                <span class="rating-count">(4.7 out of 5 stars from 7,502 reviews)</span>
+            </div>
+
+            <!-- Color Selection -->
+            <div class="color-selection">
+                <p><strong>Color:</strong> <span id="color-name">Black</span></p>
+                <div class="swatch-container">
+                    <div class="swatch black active" data-color="black" title="Black"></div>
+                    <div class="swatch white" data-color="white" title="White"></div>
+                </div>
+            </div>
+
+            <div class="product-price">
+                <p class="price-label">Price:</p>
+                <p class="price-value">$229.99</p>
+            </div>
+
+            <div class="product-status">
+                <p class="status-message out-of-stock">Currently Out of Stock</p>
+            </div>
+
+            <div class="product-info">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="info-label">Brand</td>
+                            <td class="info-value">SonicBlast</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Model</td>
+                            <td class="info-value">VK-1153</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Connectivity</td>
+                            <td class="info-value">Bluetooth 5.1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="product-description">
+                <h2>About this item</h2>
+                <ul>
+                    <li>Crystal Clear Sound - Engineered with precision VK-series drivers.</li>
+                    <li>IPX5 Water Resistance - Perfect for workouts and rain.</li>
+                    <li>Touch Controls - Manage music and calls with a simple tap.</li>
+                    <li>30-Hour Battery Life - Including the portable charging case.</li>
+                </ul>
+
+                <p>The SonicBlast Premium Wireless Earphones (Model VK-1153) redefine on-the-go audio with a sleek,
+                    lightweight profile and high-fidelity sound output. Designed for both daily commuters and fitness
+                    enthusiasts, these earphones feature advanced noise reduction and a secure, ergonomic fit that stays
+                    comfortable all day long.</p>
+            </div>
+
+            <section class="product-actions">
+                <div class="quantity-selector">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1" disabled>
+                </div>
+
+                <button class="btn btn-add-cart" disabled>Add to cart</button>
+                <button class="btn btn-buy-now" disabled>Buy Now</button>
+                <button class="btn btn-add-list">Add to List</button>
+            </section>
+
+            <div class="seller-info">
+                <p>Shipper / Seller: <strong>Bamazone</strong></p>
+            </div>
+        </section>
+    </div>
+
+    <script src="../shared/loader.js"></script>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('q');
+
+        if (searchQuery) {
+            //търси продукта
+        }
+
+        // Image gallery functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const thumbnails = document.getElementsByClassName('thumbnail');
+            const mainImage = document.getElementById('main-image');
+            const imagePlaceholder = document.getElementById('image-placeholder');
+
+            // Using event delegation so it works when thumbnails are swapped by Script 2
+            document.body.addEventListener('click', function (e) {
+                const thumbnail = e.target.closest('.thumbnail');
+                if (!thumbnail) return;
+
+                // Remove active class from all thumbnails
+                for (let t of thumbnails) {
+                    t.classList.remove('active');
+                }
+
+                // Add active class to clicked thumbnail
+                thumbnail.classList.add('active');
+
+                // Change main image
+                const imageSrc = thumbnail.children[0].src;
+                if (mainImage) {
+                    mainImage.src = imageSrc;
+                    mainImage.style.display = 'block';
+                    if (imagePlaceholder) {
+                        imagePlaceholder.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- SCRIPT : COLOR SELECTION & GALLERY INJECTION -->
+    <script>
+        const colorData = {
+            black: {
+                name: "Black",
+                images: [
+                    "images/products/headphones/Gemini_Generated_Image_lzkot8lzkot8lzko.png",
+                    "images/products/headphones/Gemini_Generated_Image_b9kwx2b9kwx2b9kw.png",
+                    "images/products/headphones/Gemini_Generated_Image_11dvve11dvve11dv.png"
+
+                ]
+            },
+            white: {
+                name: "White",
+                images: [
+                    "images/products/headphones/Gemini_Generated_Image_lp2bsjlp2bsjlp2b.png",
+                    "images/products/headphones/Gemini_Generated_Image_7gy7j67gy7j67gy7.png",
+                    "images/products/headphones/Gemini_Generated_Image_nc24gpnc24gpnc24.png"
+                ]
+            }
+        };
+
+        function updateColorGallery(color) {
+            const data = colorData[color];
+            const thumbContainer = document.getElementById('thumb-container');
+            const mainImg = document.getElementById('main-image');
+            const colorNameText = document.getElementById('color-name');
+
+            colorNameText.innerText = data.name;
+            mainImg.src = data.images[0];
+
+            // Re-build the thumbnails for Script 1 to interact with
+            thumbContainer.innerHTML = '';
+            data.images.forEach((src, index) => {
+                const div = document.createElement('div');
+                div.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                div.innerHTML = `<img src="${src}" alt="${color} view">`;
+                thumbContainer.appendChild(div);
+            });
+        }
+
+        document.querySelectorAll('.swatch').forEach(swatch => {
+            swatch.addEventListener('click', function () {
+                document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+                this.classList.add('active');
+                updateColorGallery(this.dataset.color);
+            });
+        });
+
+        // Load black version by default
+        updateColorGallery('black');
+    </script>
+</body>
+
+</html>
