@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bamazone</title>
+    <link rel="stylesheet" href="../shared/shared-styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header"></header>
+    <div class="container">
+        <section class="product-image">
+            <div class="image-gallery">
+                <div class="main-image-container">
+                    <img src="images/products/axe/axe_main.jpg"
+                        alt="Panasonic NN-SN966S Microwave Oven - Main View" id="main-image" class="main-image">
+                </div>
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail active">
+                        <img src="images/products/axe/axe_main.jpg" alt="Main View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/products/axe/axe_no_cover.jpg" alt="Axe without the cover">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/products/axe/axe_with_cover.jpg" alt="Axe with the cover on">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/products/axe/axe_upper_part.jpg" alt="Upper part of the axe">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-details">
+            <h1 class="product-title">SOG Tomahawk Tactical Hatchet - Voodoo Hawk Mini Tactical Axe, Throwing Hatchet w/
+                2.75 Inch Blade for Survival Sports and Camping Axes (F182N-CP)</h1>
+
+            <div class="product-rating">
+                <span class="rating-stars">★★★★☆</span>
+                <span class="rating-count">(4.2 out of 5 stars from 502 reviews)</span>
+            </div>
+
+            <div class="product-price">
+                <p class="price-label">Price:</p>
+                <p class="price-value">$50.55</p>
+            </div>
+
+            <div class="product-status">
+                <p class="status-message">In Stock - Ships within 3 business days</p>
+            </div>
+
+            <div class="product-info">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="info-label">Brand</td>
+                            <td class="info-value">SOG Specialty Knives</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Blade Length</td>
+                            <td class="info-value">2.75 Inches</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Overall Length</td>
+                            <td class="info-value">12.5 Inches</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Material</td>
+                            <td class="info-value">3Cr13MoV Stainless Steel</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Handle Material</td>
+                            <td class="info-value">Glass-Reinforced Nylon</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Weight</td>
+                            <td class="info-value">23.1 Ounces</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="product-description">
+                <div class="product-description">
+                    <h2>About this item</h2>
+                    <ul>
+                        <li><strong>Compact Tactical Design</strong> - The Voodoo Hawk Mini is a smaller, faster version
+                            of the original, perfect for hikers and campers.</li>
+                        <li><strong>Stainless Steel Blade</strong> - 2.75-inch 3Cr13MoV stainless steel head with a
+                            satin finish for durability and corrosion resistance.</li>
+                        <li><strong>Piercing Spike</strong> - Features a sharpened spike on the back for breaching,
+                            extraction, or sporting use.</li>
+                        <li><strong>Nylon Carry Sheath</strong> - Includes a heavy-duty ballistic nylon sheath with a
+                            belt loop for safe transport.</li>
+                        <li><strong>Extended Tang</strong> - The steel head extends into the handle for increased
+                            strength and impact resistance.</li>
+                        <li><strong>GRN Handle</strong> - Glass-reinforced nylon handle with a metal pommel cap for
+                            superior grip and balance.</li>
+                    </ul>
+                    <p>The SOG Voodoo Hawk Mini is the ultimate multi-purpose tool for survivalists and outdoor
+                        enthusiasts. Combining elements from the tactical Tomahawk and the classic hatchet, it features
+                        a lightweight design that doesn't sacrifice power. Whether you are clearing brush at a campsite
+                        or practicing your throwing technique, the Voodoo Hawk Mini provides the precision and
+                        durability SOG is known for.</p>
+                </div>
+            </div>
+
+            <section class="product-actions">
+                <div class="quantity-selector">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1" min="1" max="10">
+                </div>
+
+                <button class="btn btn-add-cart">Add to cart</button>
+                <button class="btn btn-buy-now">Buy Now</button>
+            </section>
+
+            <div class="seller-info">
+                <p>Shipper / Seller: <strong>Bamazone</strong></p>
+            </div>
+        </section>
+    </div>
+
+    <script src="../shared/loader.js"></script>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('q');
+
+        if (searchQuery) {
+            //търси продукта
+        }
+
+        // Image gallery functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const thumbnails = document.getElementsByClassName('thumbnail');
+            const mainImage = document.getElementById('main-image');
+            const imagePlaceholder = document.getElementById('image-placeholder');
+
+            for (let thumbnail of thumbnails) {
+                thumbnail.addEventListener('click', function () {
+                    // Remove active class from all thumbnails
+                    for (let t of thumbnails) {
+                        t.classList.remove('active');
+                    }
+
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+
+                    // Change main image
+                    const imageSrc = this.children[0].src;
+                    if (mainImage) {
+                        mainImage.src = imageSrc;
+                        mainImage.style.display = 'block';
+                        if (imagePlaceholder) {
+                            imagePlaceholder.style.display = 'none';
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
