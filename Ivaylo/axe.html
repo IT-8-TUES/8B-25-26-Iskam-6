@@ -39,7 +39,7 @@
         </section>
 
         <section class="product-details">
-            <h1 class="product-title">SOG Tomahawk Tactical Hatchet - Voodoo Hawk Mini Tactical Axe, Throwing Hatchet w/
+            <h1 id="product-title" class="product-title">SOG Tomahawk Tactical Hatchet - Voodoo Hawk Mini Tactical Axe, Throwing Hatchet w/
                 2.75 Inch Blade for Survival Sports and Camping Axes (F182N-CP)</h1>
 
             <div class="product-rating">
@@ -49,7 +49,7 @@
 
             <div class="product-price">
                 <p class="price-label">Price:</p>
-                <p class="price-value">$50.55</p>
+                <p class="price-value">$<span id="price">50.55<span></p>
             </div>
 
             <div class="product-status">
@@ -118,7 +118,7 @@
                     <input type="number" id="quantity" value="1" min="1" max="10">
                 </div>
 
-                <button class="btn btn-add-cart">Add to cart</button>
+                <button id="btn-add-cart" class="btn btn-add-cart">Add to cart</button>
                 <button id="btn-buy-now" class="btn btn-buy-now">Buy Now</button>
             </section>
 
@@ -131,7 +131,11 @@
     <script src="../shared/loader.js"></script>
 
     <script src="gallery_change.js"></script>
-    
+
     <script src="buy-now.js"></script>
+
+    <script>
+        setUpAddToCart("AXE");
+    </script>
 
 </body>

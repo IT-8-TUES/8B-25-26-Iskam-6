@@ -65,6 +65,44 @@ function initializeHeader() {
         if (input) input.value = q;
         document.title = `Search: ${q} - Bamazone`;
     }
+
+    updateCart();
 }
 
 document.addEventListener('DOMContentLoaded', () => loadHeader("header", "../shared/header.html"));
+
+function updateCart() {
+    const cart = JSON.parse(localStorage.getItem('user-card')) || {};
+    const size = Object.keys(cart).length;
+    document.getElementById('cart-count').innerHTML = size;
+}
+
+function addItemToCart(key, title, prise, quantity, img) {
+
+    const cart = JSON.parse(localStorage.getItem('user-card')) || {};
+
+    const item = {
+        "title": title,
+        "prise": prise,
+        "quantity": quantity,
+        "img": img
+    };
+
+    cart[key] = item;
+
+    localStorage.setItem('user-card', JSON.stringify(cart));
+
+    updateCart();
+}
+
+function setUpAddToCart(product) {
+    document.getElementById("btn-add-cart").addEventListener('click', function () {
+        const title = document.getElementById('product-title').innerHTML;
+        const prise = document.getElementById('price').innerHTML;
+        const quantity = document.getElementById('quantity').value;
+        const img = document.getElementById('main-image').src;
+
+        addItemToCart(product, title, prise, quantity, img);
+    }
+    );
+}

@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bamazone</title>
-    <link rel="stylesheet" href="../shared/shared-style s">
+    <link rel="stylesheet" href="../shared/shared-styles.css">
     <link rel="stylesheet" href="../shared/dark-theme.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -38,7 +38,7 @@
         </section>
 
         <section class="product-details">
-            <h1 class="product-title">Norelco Philips All-in-One 21-Piece Trimmer 5000 Series - Electric Shaver and
+            <h1 id="product-title" class="product-title">Norelco Philips All-in-One 21-Piece Trimmer 5000 Series - Electric Shaver and
                 Clipper for Face, Beard, Hair & Body, Self-Sharpening Titanium Blades, 22 Length Settings (0.5-16 mm),
                 MG5995/40</h1>
 
@@ -49,7 +49,7 @@
 
             <div class="product-price">
                 <p class="price-label">Price:</p>
-                <p class="price-value">$69.99</p>
+                <p class="price-value">$<span id="price">69.99</span></p>
             </div>
 
             <div class="product-status">
@@ -88,28 +88,36 @@
             </div>
 
             <div class="product-description">
-               <h2>About this item</h2>
-            <ul>
-                <li><strong>21-Piece All-in-One Trimmer</strong> - Everything you need for face, head, and body
-                    grooming.</li>
-                <li><strong>Titanium Blade Technology</strong> - Self-sharpening blades are reinforced with titanium for
-                    maximum strength and longevity.</li>
-                <li><strong>BeardSense Technology</strong> - Scans hair density 125x per second and boosts power exactly
-                    when you need it to tackle thick hair.</li>
-                <li><strong>22 Length Settings</strong> - Precision dial and combs provide settings from 0.5mm to 16mm
-                    for any style.</li>
-                <li><strong>100% Showerproof</strong> - Fully water-resistant for convenient use in the shower and easy
-                    cleaning under the tap.</li>
-                <li><strong>Powerful Li-Ion Battery</strong> - Delivers 180 minutes of cordless use per charge, with a
-                    5-minute quick charge option.</li>
-                <li><strong>Ergonomic Grip</strong> - Premium stainless steel handle with rubber grip for superior
-                    control while trimming.</li>
-            </ul>
-            <p>The Philips Norelco Multigroom 5000 is the ultimate styling tool for the modern man. Featuring our most
-                advanced titanium blades and unique BeardSense technology, it provides a precise, even trim in a single
-                pass. Whether you are styling a clean fade, grooming a thick beard, or trimming body hair, the 21
-                included attachments and 22 length settings ensure professional results from the comfort of your home.
-            </p>
+                <h2>About this item</h2>
+                <ul>
+                    <li><strong>21-Piece All-in-One Trimmer</strong> - Everything you need for face, head, and body
+                        grooming.</li>
+                    <li><strong>Titanium Blade Technology</strong> - Self-sharpening blades are reinforced with titanium
+                        for
+                        maximum strength and longevity.</li>
+                    <li><strong>BeardSense Technology</strong> - Scans hair density 125x per second and boosts power
+                        exactly
+                        when you need it to tackle thick hair.</li>
+                    <li><strong>22 Length Settings</strong> - Precision dial and combs provide settings from 0.5mm to
+                        16mm
+                        for any style.</li>
+                    <li><strong>100% Showerproof</strong> - Fully water-resistant for convenient use in the shower and
+                        easy
+                        cleaning under the tap.</li>
+                    <li><strong>Powerful Li-Ion Battery</strong> - Delivers 180 minutes of cordless use per charge, with
+                        a
+                        5-minute quick charge option.</li>
+                    <li><strong>Ergonomic Grip</strong> - Premium stainless steel handle with rubber grip for superior
+                        control while trimming.</li>
+                </ul>
+                <p>The Philips Norelco Multigroom 5000 is the ultimate styling tool for the modern man. Featuring our
+                    most
+                    advanced titanium blades and unique BeardSense technology, it provides a precise, even trim in a
+                    single
+                    pass. Whether you are styling a clean fade, grooming a thick beard, or trimming body hair, the 21
+                    included attachments and 22 length settings ensure professional results from the comfort of your
+                    home.
+                </p>
             </div>
 
             <section class="product-actions">
@@ -118,7 +126,7 @@
                     <input type="number" id="quantity" value="1" min="1" max="10">
                 </div>
 
-                <button class="btn btn-add-cart">Add to cart</button>
+                <button id="btn-add-cart" class="btn btn-add-cart">Add to cart</button>
                 <button id="btn-buy-now" class="btn btn-buy-now">Buy Now</button>
             </section>
 
@@ -131,7 +139,11 @@
     <script src="../shared/loader.js"></script>
 
     <script src="gallery_change.js"></script>
-        
+
     <script src="buy-now.js"></script>
+
+    <script>
+        setUpAddToCart("HAIRCUTTER");
+    </script>
 
 </body>
