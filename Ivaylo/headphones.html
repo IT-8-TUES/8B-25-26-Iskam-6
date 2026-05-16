@@ -151,7 +151,7 @@
                 </div>
 
                 <button class="btn btn-add-cart" disabled>Add to cart</button>
-                <button class="btn btn-buy-now" disabled>Buy Now</button>
+                <button id="btn-buy-now" class="btn btn-buy-now" disabled>Buy Now</button>
             </section>
 
             <div class="seller-info">
@@ -194,7 +194,7 @@
             for (let i = 0; i < thumbnailGallery.children.length; i++) {
                 let img = thumbnailGallery.children[i].children[0];
                 img.src = data.images[i];
-                if(img.parentElement.classList.contains("active")){
+                if (img.parentElement.classList.contains("active")) {
                     activeIndex = i;
                 }
             }
@@ -217,6 +217,9 @@
         // Load black version by default
         updateColorGallery('black');
     </script>
+
+    <script src="buy-now.js"></script>
+
 </body>
 
 </html>

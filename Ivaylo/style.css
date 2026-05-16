@@ -205,15 +205,14 @@
 
 .btn-add-cart,
 .btn-buy-now {
-    color: white;
-    background-color: #ccc;
-    cursor: not-allowed;
-    opacity: 0.6;
+    color: black;
+    background-color: #ff9900;
+    border: 1px solid var(--border-color);
 }
 
 .btn-add-cart:hover,
 .btn-buy-now:hover {
-    background-color: #ccc;
+    background-color: #f8b755;
 }
 
 .btn-add-list {
