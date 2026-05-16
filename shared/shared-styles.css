@@ -74,6 +74,20 @@ body {
     align-items: center;
 }
 
+.header-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header-item-wrap {
+    flex: 0 0 auto;
+}
+
+.header-item-spread {
+    flex: 1 0 auto;
+}
+
 .account {
     font-size: 13px;
     cursor: pointer;
