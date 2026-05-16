@@ -1,9 +1,9 @@
 .container {
     display: flex;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 15px auto;
     gap: 40px;
-    background: white;
+    border: 1px solid var(--border-color);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -83,7 +83,6 @@
 
 .product-title {
     font-size: 28px;
-    color: #333;
 }
 
 .product-rating {
@@ -98,13 +97,12 @@
 }
 
 .product-price {
-    background-color: #f9f9f9;
+    border: 1px solid var(--border-color);
     padding: 15px;
     border-radius: 4px;
 }
 
 .price-label {
-    color: #666;
     font-size: 14px;
     margin-bottom: 5px;
 }
@@ -112,7 +110,7 @@
 .price-value {
     font-size: 24px;
     font-weight: bold;
-    color: #999;
+    color: #ff9900;
 }
 
 .product-status {
@@ -140,7 +138,6 @@
 .info-label {
     font-weight: bold;
     padding: 10px 0;
-    color: #333;
     width: 40%;
 }
 
@@ -157,7 +154,6 @@
 .product-description h2 {
     font-size: 18px;
     margin-bottom: 10px;
-    color: #333;
 }
 
 .product-description p {
@@ -259,7 +255,7 @@
 .delivery-container {
     max-width: 600px;
     margin: 50px auto;
-    background: white;
+    border: 1px solid var(--border-color);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -268,14 +264,12 @@
 .delivery-form h1 {
     text-align: center;
     margin-bottom: 10px;
-    color: #333;
     font-size: 28px;
 }
 
 .delivery-form>p {
     text-align: center;
     margin-bottom: 30px;
-    color: #666;
     font-size: 16px;
 }
 
@@ -291,20 +285,19 @@
     align-items: center;
     gap: 15px;
     padding: 15px;
-    border: 2px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .delivery-option:hover {
-    border-color: #ff9900;
-    background-color: #fffbf0;
+    border-color: #dcdcdc;
+    background-color: rgba(216, 216, 216, 0.2)
 }
 
 .delivery-option.selected {
     border-color: #ff9900;
-    background-color: #fffbf0;
     box-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
 }
 
@@ -318,7 +311,6 @@
 .location-name {
     font-size: 18px;
     font-weight: 500;
-    color: #333;
 }
 
 .btn-confirm-delivery {
@@ -342,7 +334,7 @@
 .signin-container {
     max-width: 400px;
     margin: 50px auto;
-    background: white;
+    border: 1px solid var(--border-color);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -351,7 +343,6 @@
 .signin-form h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: #333;
     font-size: 28px;
 }
 
@@ -363,7 +354,6 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333;
 }
 
 .form-group input {
@@ -421,13 +411,11 @@
 
 .already-logged-in h1 {
     margin-bottom: 20px;
-    color: #333;
     font-size: 28px;
 }
 
 .already-logged-in p {
     margin-bottom: 15px;
-    color: #666;
     font-size: 16px;
 }
 

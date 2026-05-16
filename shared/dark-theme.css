@@ -22,30 +22,11 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-#top-row, #bottom-row {
-    background-color: var(--header-bg) !important;
-    border-bottom: 1px solid var(--border-color);
-    padding: 10px;
-    color: var(--text-color) !important;
-}
-
 .product-card {
     border: 1px solid var(--border-color) !important;
     background-color: var(--header-bg);
 }
 
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-.navbar a {
-    color: var(--text-color) !important;
-}
-
-#top-row {
-    color: var(--text-color) !important;
-}
 
 [data-theme="light"] #theme-toggle {
     background-color: #2d3436;
