@@ -69,7 +69,24 @@ function initializeHeader() {
     updateCart();
 }
 
-document.addEventListener('DOMContentLoaded', () => loadHeader("header", "../shared/header.html"));
+async function loadFooter() {
+    try {
+        const response = await fetch("../shared/footer.html");
+        if (!response.ok) return;
+        const html = await response.text();
+        const footer = document.createElement('footer');
+        footer.id = "footer";
+        footer.innerHTML = html;
+        document.body.appendChild(footer);
+    } catch (error) {
+        console.error('Footer Load Error:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadHeader("header", "../shared/header.html");
+    loadFooter();
+});
 
 function updateCart() {
     const cart = JSON.parse(localStorage.getItem('user-card')) || {};
