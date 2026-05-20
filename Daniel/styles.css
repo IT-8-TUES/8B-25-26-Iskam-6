@@ -81,14 +81,17 @@ body {
     display: inline-block;
     margin-top: auto;
     padding: 10px 20px;
-    background-color: var(--accent-color);
-    color: white;
-    border-radius: 6px;
+    background: #ff9900;
+    color: #232f3e;
+    border-radius: 8px;
     text-align: center;
-    font-weight: 600;
-    transition: opacity 0.2s;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    transition: opacity 0.2s, transform 0.1s;
 }
 
 .product-card a:hover {
-    opacity: 0.9;
+    opacity: 0.85;
+    transform: translateY(-1px);
 }
